@@ -2,41 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Sakura Dreams Budget Tracker - Mitsuri Aesthetic Design System
+All colors MUST be HSL for perfect gradients and animations.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Sakura Pink Palette */
+    --background: 350 100% 98%;
+    --foreground: 340 20% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 350 60% 97%;
+    --card-foreground: 340 25% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 350 80% 98%;
+    --popover-foreground: 340 20% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Coral & Baby Pink Theme */
+    --primary: 5 85% 70%;
+    --primary-foreground: 350 100% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 340 60% 88%;
+    --secondary-foreground: 340 40% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 350 40% 94%;
+    --muted-foreground: 340 15% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 15 90% 75%;
+    --accent-foreground: 340 30% 20%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 350 100% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 350 35% 90%;
+    --input: 350 40% 95%;
+    --ring: 5 85% 70%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Sakura Gradients */
+    --gradient-sakura: linear-gradient(135deg, hsl(350 100% 95%), hsl(5 85% 85%), hsl(15 90% 80%));
+    --gradient-coral: linear-gradient(45deg, hsl(5 85% 70%), hsl(15 90% 75%));
+    --gradient-soft: linear-gradient(180deg, hsl(350 60% 97%), hsl(340 40% 94%));
+    --gradient-cat: linear-gradient(135deg, hsl(25 80% 85%), hsl(35 70% 88%));
+
+    /* Sakura Tree Colors */
+    --sakura-bark: 25 40% 45%;
+    --sakura-flower: 350 90% 85%;
+    --sakura-petal: 5 95% 88%;
+    --sakura-leaf: 90 50% 70%;
+
+    /* Interactive Elements */
+    --glow-soft: 0 10px 30px hsl(5 85% 70% / 0.3);
+    --glow-strong: 0 15px 40px hsl(15 90% 75% / 0.5);
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +123,217 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-sakura);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* Sakura Tree Animations */
+  .sakura-tree {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .sakura-branch {
+    position: absolute;
+    background: hsl(var(--sakura-bark));
+    transform-origin: bottom center;
+    border-radius: 10px;
+  }
+
+  .sakura-petal {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: hsl(var(--sakura-petal));
+    border-radius: 50% 50% 50% 0;
+    animation: fall linear infinite;
+    opacity: 0.8;
+    transform: rotate(45deg);
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-100px) rotate(45deg) rotateY(0deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(100vh) rotate(405deg) rotateY(360deg);
+      opacity: 0;
+    }
+  }
+
+  .sakura-flower {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, hsl(var(--sakura-flower)), hsl(var(--sakura-petal)));
+    border-radius: 50%;
+    animation: bloom 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes bloom {
+    0% { transform: scale(0.8); opacity: 0.7; }
+    100% { transform: scale(1.1); opacity: 1; }
+  }
+
+  /* Interactive Cat */
+  .sakura-cat {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 60px;
+    background: var(--gradient-cat);
+    border-radius: 50% 50% 40% 40%;
+    cursor: pointer;
+    transition: var(--transition-bounce);
+    z-index: 100;
+    animation: float 2s ease-in-out infinite;
+  }
+
+  .sakura-cat:hover {
+    transform: translateX(-50%) scale(1.1);
+    filter: drop-shadow(var(--glow-soft));
+  }
+
+  .cat-ears {
+    position: absolute;
+    top: -8px;
+    width: 12px;
+    height: 15px;
+    background: var(--gradient-cat);
+    border-radius: 50% 50% 0 0;
+  }
+
+  .cat-ears.left { left: 15px; transform: rotate(-15deg); }
+  .cat-ears.right { right: 15px; transform: rotate(15deg); }
+
+  .cat-face {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: hsl(340 50% 40%);
+    border-radius: 50%;
+  }
+
+  .cat-whiskers {
+    position: absolute;
+    top: 12px;
+    width: 2px;
+    height: 1px;
+    background: hsl(340 30% 50%);
+  }
+
+  .cat-whiskers.left1 { left: 10px; transform: rotate(-20deg); }
+  .cat-whiskers.left2 { left: 8px; top: 16px; transform: rotate(-10deg); }
+  .cat-whiskers.right1 { right: 10px; transform: rotate(20deg); }
+  .cat-whiskers.right2 { right: 8px; top: 16px; transform: rotate(10deg); }
+
+  .cat-tail {
+    position: absolute;
+    bottom: 5px;
+    right: -10px;
+    width: 20px;
+    height: 4px;
+    background: var(--gradient-cat);
+    border-radius: 10px;
+    transform-origin: left center;
+    animation: wag 1.5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0px); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+  }
+
+  @keyframes wag {
+    0%, 100% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+  }
+
+  /* Button Variants */
+  .btn-sakura {
+    @apply px-6 py-3 rounded-2xl font-medium transition-all duration-300;
+    background: var(--gradient-coral);
+    color: hsl(var(--primary-foreground));
+    border: 1px solid hsl(var(--primary));
+    box-shadow: var(--glow-soft);
+  }
+
+  .btn-sakura:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-strong);
+  }
+
+  .btn-soft {
+    @apply px-4 py-2 rounded-xl font-medium transition-all duration-300;
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    border: 1px solid hsl(var(--border));
+  }
+
+  .btn-soft:hover {
+    background: hsl(var(--accent));
+    transform: translateY(-1px);
+  }
+
+  /* Card Variants */
+  .card-sakura {
+    @apply rounded-3xl p-6 border transition-all duration-300;
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 8px 32px hsl(var(--primary) / 0.1);
+  }
+
+  .card-sakura:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px hsl(var(--primary) / 0.2);
+  }
+
+  /* Navigation Styles */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-2xl transition-all duration-300 cursor-pointer;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .nav-item:hover, .nav-item.active {
+    background: var(--gradient-soft);
+    color: hsl(var(--primary));
+    transform: translateX(4px);
+  }
+
+  /* Chart Container */
+  .chart-container {
+    @apply p-4 rounded-2xl;
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  /* Input Styles */
+  .input-sakura {
+    @apply px-4 py-3 rounded-xl border transition-all duration-300;
+    background: hsl(var(--input) / 0.8);
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--foreground));
+  }
+
+  .input-sakura:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
   }
 }

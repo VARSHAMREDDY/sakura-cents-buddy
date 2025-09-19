@@ -9,12 +9,13 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-gray-600">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 underline hover:text-blue-700">
-          Return to Home
+    <div className="min-h-screen flex items-center justify-center font-sakura" style={{ background: 'var(--gradient-sakura)' }}>
+      <div className="card-sakura text-center max-w-md mx-4">
+        <div className="text-6xl mb-6">🌸</div>
+        <h1 className="mb-4 text-4xl font-cute font-bold text-primary">404</h1>
+        <p className="mb-6 text-xl text-muted-foreground">Oops! This sakura petal got lost in the wind</p>
+        <a href="/" className="btn-sakura inline-flex items-center gap-2">
+          🏠 Return to Garden
         </a>
       </div>
     </div>

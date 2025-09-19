@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'sakura': ['"Quicksand"', 'sans-serif'],
+        'cute': ['"Comfortaa"', 'cursive'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -46,6 +50,12 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        sakura: {
+          bark: "hsl(var(--sakura-bark))",
+          flower: "hsl(var(--sakura-flower))",
+          petal: "hsl(var(--sakura-petal))",
+          leaf: "hsl(var(--sakura-leaf))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -84,6 +94,22 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fall": "fall linear infinite",
+        "bloom": "bloom 3s ease-in-out infinite alternate",
+        "float": "float 2s ease-in-out infinite",
+        "wag": "wag 1.5s ease-in-out infinite",
+        "sparkle": "sparkle 1.5s ease-in-out infinite",
+        "gentle-bounce": "gentle-bounce 2s ease-in-out infinite",
+      },
+      backgroundImage: {
+        'gradient-sakura': 'var(--gradient-sakura)',
+        'gradient-coral': 'var(--gradient-coral)',
+        'gradient-soft': 'var(--gradient-soft)',
+        'gradient-cat': 'var(--gradient-cat)',
+      },
+      boxShadow: {
+        'glow-soft': 'var(--glow-soft)',
+        'glow-strong': 'var(--glow-strong)',
       },
     },
   },
