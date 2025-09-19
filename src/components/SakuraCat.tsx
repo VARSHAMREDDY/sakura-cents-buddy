@@ -58,6 +58,25 @@ export const SakuraCat = ({ currentPage = 'dashboard' }: SakuraCatProps) => {
       <div className="cat-ears left" />
       <div className="cat-ears right" />
       
+      {/* Skull flower on head */}
+      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-6 h-6 flex items-center justify-center">
+        <div className="relative">
+          {/* Flower petals */}
+          <div className="absolute w-3 h-3 bg-sakura-flower rounded-full -top-1 left-1.5 animate-bloom opacity-90" />
+          <div className="absolute w-3 h-3 bg-sakura-petal rounded-full top-0 -left-0.5 animate-bloom opacity-85" style={{ animationDelay: '0.5s' }} />
+          <div className="absolute w-3 h-3 bg-sakura-flower rounded-full top-0 left-2.5 animate-bloom opacity-90" style={{ animationDelay: '1s' }} />
+          <div className="absolute w-3 h-3 bg-sakura-petal rounded-full top-1.5 left-1.5 animate-bloom opacity-85" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute w-3 h-3 bg-sakura-flower rounded-full top-1 -left-1 animate-bloom opacity-80" style={{ animationDelay: '2s' }} />
+          <div className="absolute w-3 h-3 bg-sakura-petal rounded-full top-1 left-3 animate-bloom opacity-80" style={{ animationDelay: '2.5s' }} />
+          {/* Small skull center */}
+          <div className="w-2 h-2 bg-foreground/30 rounded-sm relative top-0.5 left-1 shadow-sm">
+            <div className="absolute w-0.5 h-0.5 bg-foreground/60 rounded-full top-0 left-0.5" />
+            <div className="absolute w-0.5 h-0.5 bg-foreground/60 rounded-full top-0 right-0.5" />
+            <div className="absolute w-1 h-0.5 bg-foreground/40 bottom-0 left-0.5 rounded-b-sm" />
+          </div>
+        </div>
+      </div>
+      
       {/* Cat face - eyes */}
       <div 
         className="absolute top-2 left-1/2 transform -translate-x-1/2 text-xs font-cute text-primary-foreground"
