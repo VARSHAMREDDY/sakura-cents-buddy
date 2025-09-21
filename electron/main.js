@@ -1,9 +1,6 @@
-import { app, BrowserWindow, Menu } from 'electron';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const { app, BrowserWindow, Menu } = require('electron');
+const path = require('path');
+const { readFileSync } = require('fs');
 
 // Keep a global reference of the window object
 let mainWindow;
@@ -21,7 +18,7 @@ function createWindow() {
       enableRemoteModule: false,
     },
     titleBarStyle: 'hiddenInset',
-    icon: join(__dirname, '../public/favicon.ico'),
+    icon: path.join(__dirname, '../public/favicon.ico'),
     show: false, // Don't show until ready-to-show
   });
 
@@ -33,7 +30,7 @@ function createWindow() {
     // Open DevTools in development
     mainWindow.webContents.openDevTools();
   } else {
-    mainWindow.loadFile(join(__dirname, '../dist/index.html'));
+    mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
   }
 
   // Show window when ready to prevent visual flash
