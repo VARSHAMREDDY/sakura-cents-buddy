@@ -1,6 +1,9 @@
-const { app, BrowserWindow, Menu } = require('electron');
-const path = require('path');
-const { readFileSync } = require('fs');
+import { app, BrowserWindow, Menu } from 'electron';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Keep a global reference of the window object
 let mainWindow;
@@ -16,10 +19,10 @@ function createWindow() {
       nodeIntegration: false,
       contextIsolation: true,
       enableRemoteModule: false,
+      webSecurity: false,
     },
     titleBarStyle: 'hiddenInset',
-    icon: path.join(__dirname, '../public/favicon.ico'),
-    show: false, // Don't show until ready-to-show
+    show: false,
   });
 
   // Load the app
@@ -27,10 +30,9 @@ function createWindow() {
   
   if (isDev) {
     mainWindow.loadURL('http://localhost:8080');
-    // Open DevTools in development
     mainWindow.webContents.openDevTools();
   } else {
-    mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
+    mainWindow.loadFile(join(__dirname, '../dist/index.html'));
   }
 
   // Show window when ready to prevent visual flash
@@ -43,15 +45,13 @@ function createWindow() {
     mainWindow = null;
   });
 
-  // Set up the menu
+  // Set up the menu for macOS
   if (process.platform === 'darwin') {
     const template = [
       {
         label: 'Sakura Cents Buddy',
         submenu: [
           { role: 'about' },
-          { type: 'separator' },
-          { role: 'services' },
           { type: 'separator' },
           { role: 'hide' },
           { role: 'hideothers' },
@@ -85,18 +85,13 @@ function createWindow() {
           { type: 'separator' },
           { role: 'togglefullscreen' }
         ]
-      },
-      {
-        label: 'Window',
-        submenu: [
-          { role: 'minimize' },
-          { role: 'close' }
-        ]
       }
     ];
 
     const menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
+  } else {
+    Menu.setApplicationMenu(null);
   }
 }
 
@@ -105,7 +100,6 @@ app.whenReady().then(() => {
   createWindow();
 
   app.on('activate', () => {
-    // On macOS it's common to re-create a window when the dock icon is clicked
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
     }
@@ -121,7 +115,13 @@ app.on('window-all-closed', () => {
 
 // Security: Prevent new window creation
 app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', (event, navigationUrl) => {
+  contents.on('new-window', (event, url) => {
     event.preventDefault();
+  });
+  
+  contents.on('will-navigate', (event, url) => {
+    if (url !== contents.getURL()) {
+      event.preventDefault();
+    }
   });
 });
