@@ -104,7 +104,7 @@ export const IncomePage = () => {
           </div>
         </div>
         <div className="text-4xl font-bold text-primary mb-2">
-          ${totalMonthlyIncome.toLocaleString()}
+          ₹{totalMonthlyIncome.toLocaleString()}
         </div>
         <p className="text-muted-foreground font-sakura">
           From {incomes.length} income source{incomes.length !== 1 ? 's' : ''}
@@ -134,7 +134,7 @@ export const IncomePage = () => {
           
           <div>
             <label className="block text-sm font-sakura font-medium text-foreground mb-2">
-              Amount ($)
+              Amount (₹)
             </label>
             <input
               type="number"
@@ -226,7 +226,7 @@ export const IncomePage = () => {
               
               <div className="text-right">
                 <div className="text-2xl font-bold text-primary">
-                  ${income.amount.toLocaleString()}
+                  ₹{income.amount.toLocaleString()}
                 </div>
                 <div className="text-sm text-muted-foreground capitalize">
                   {income.type}

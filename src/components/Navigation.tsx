@@ -23,7 +23,6 @@ const menuItems = [
   { id: 'stocks', label: 'Investments', icon: TrendingUp, color: 'from-blue-400 to-indigo-400' },
   { id: 'beauty', label: 'Beauty & Self-care', icon: Heart, color: 'from-pink-500 to-rose-500' },
   { id: 'gifts', label: 'Gifts & Treats', icon: Gift, color: 'from-amber-400 to-orange-400' },
-  { id: 'makeup', label: 'Makeup & Skincare', icon: Palette, color: 'from-fuchsia-400 to-pink-400' },
   { id: 'charts', label: 'Analytics', icon: PieChart, color: 'from-teal-400 to-cyan-400' },
   { id: 'notes', label: 'Dream Notes', icon: StickyNote, color: 'from-indigo-400 to-purple-400' },
 ];

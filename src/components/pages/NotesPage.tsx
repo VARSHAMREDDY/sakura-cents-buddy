@@ -17,7 +17,7 @@ export const NotesPage = () => {
     {
       id: '1',
       title: 'Dream Vacation to Japan 🌸',
-      content: 'Save $3000 for cherry blossom season trip. Visit Tokyo, Kyoto, and see Mount Fuji. Budget breakdown: Flight $800, Hotel $1000, Food & Activities $1200.',
+      content: 'Save ₹3000 for cherry blossom season trip. Visit Tokyo, Kyoto, and see Mount Fuji. Budget breakdown: Flight ₹800, Hotel ₹1000, Food & Activities ₹1200.',
       category: 'dream',
       color: 'from-pink-400 to-rose-400',
       favorite: true,
@@ -27,7 +27,7 @@ export const NotesPage = () => {
     {
       id: '2',
       title: 'Monthly Budget Goals 🎯',
-      content: 'Food: $500, Beauty: $300, Clothes: $200, Entertainment: $150, Savings: $2000. Try to cook more at home to save on food expenses.',
+      content: 'Food: ₹500, Beauty: ₹300, Clothes: ₹200, Entertainment: ₹150, Savings: ₹2000. Try to cook more at home to save on food expenses.',
       category: 'goal',
       color: 'from-purple-400 to-violet-400',
       favorite: false,
@@ -36,8 +36,8 @@ export const NotesPage = () => {
     },
     {
       id: '3',
-      title: 'Skincare Routine Investment 💄',
-      content: 'Research good skincare products. Current routine needs improvement. Budget $200/month for quality products. Check reviews for The Ordinary and Cetaphil.',
+      title: 'Beauty Routine Investment 💄',
+      content: 'Research good beauty products. Current routine needs improvement. Budget ₹200/month for quality products. Check reviews for The Ordinary and Cetaphil.',
       category: 'idea',
       color: 'from-green-400 to-emerald-400',
       favorite: true,

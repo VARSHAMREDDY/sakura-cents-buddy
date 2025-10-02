@@ -7,95 +7,9 @@ import { IncomePage } from '@/components/pages/IncomePage';
 import { ExpensePage } from '@/components/pages/ExpensePage';
 import { ChartsPage } from '@/components/pages/ChartsPage';
 import { NotesPage } from '@/components/pages/NotesPage';
-
-// Import other page components for the additional categories
-const StocksPage = () => (
-  <div className="space-y-8">
-    <div className="text-center">
-      <h1 className="text-3xl font-cute font-bold text-primary mb-2">
-        📈 Investment Tracker
-      </h1>
-      <p className="text-lg font-sakura text-muted-foreground">
-        Track your investment portfolio and stock purchases
-      </p>
-    </div>
-    <div className="card-sakura">
-      <div className="text-center py-12">
-        <div className="text-6xl mb-4">🚧</div>
-        <h2 className="text-xl font-cute font-bold text-foreground mb-2">Coming Soon!</h2>
-        <p className="font-sakura text-muted-foreground">
-          This beautiful feature is blooming and will be ready soon! 🌸
-        </p>
-      </div>
-    </div>
-  </div>
-);
-
-const BeautyPage = () => (
-  <div className="space-y-8">
-    <div className="text-center">
-      <h1 className="text-3xl font-cute font-bold text-primary mb-2">
-        💆‍♀️ Beauty & Self-care
-      </h1>
-      <p className="text-lg font-sakura text-muted-foreground">
-        Track your wellness and self-care investments
-      </p>
-    </div>
-    <div className="card-sakura">
-      <div className="text-center py-12">
-        <div className="text-6xl mb-4">🌸</div>
-        <h2 className="text-xl font-cute font-bold text-foreground mb-2">Blooming Soon!</h2>
-        <p className="font-sakura text-muted-foreground">
-          Self-care tracking is growing and will bloom beautifully! ✨
-        </p>
-      </div>
-    </div>
-  </div>
-);
-
-const GiftsPage = () => (
-  <div className="space-y-8">
-    <div className="text-center">
-      <h1 className="text-3xl font-cute font-bold text-primary mb-2">
-        🎁 Gifts & Treats
-      </h1>
-      <p className="text-lg font-sakura text-muted-foreground">
-        Keep track of gifts for loved ones and special treats
-      </p>
-    </div>
-    <div className="card-sakura">
-      <div className="text-center py-12">
-        <div className="text-6xl mb-4">🎀</div>
-        <h2 className="text-xl font-cute font-bold text-foreground mb-2">Gift Wrapping Soon!</h2>
-        <p className="font-sakura text-muted-foreground">
-          This sweet feature is being carefully wrapped with love! 💝
-        </p>
-      </div>
-    </div>
-  </div>
-);
-
-const MakeupPage = () => (
-  <div className="space-y-8">
-    <div className="text-center">
-      <h1 className="text-3xl font-cute font-bold text-primary mb-2">
-        💄 Makeup & Skincare
-      </h1>
-      <p className="text-lg font-sakura text-muted-foreground">
-        Track your beauty collection and skincare routine expenses
-      </p>
-    </div>
-    <div className="card-sakura">
-      <div className="text-center py-12">
-        <div className="text-6xl mb-4">✨</div>
-        <h2 className="text-xl font-cute font-bold text-foreground mb-2">Getting Glam!</h2>
-        <p className="font-sakura text-muted-foreground">
-          This gorgeous feature is getting ready and will be stunning! 💋
-        </p>
-      </div>
-    </div>
-  </div>
-);
+import { StocksPage } from '@/components/pages/StocksPage';
+import { BeautyPage } from '@/components/pages/BeautyPage';
+import { GiftsPage } from '@/components/pages/GiftsPage';
 
 const Index = () => {
   const [currentPage, setCurrentPage] = useState('dashboard');
@@ -114,8 +28,6 @@ const Index = () => {
         return <BeautyPage />;
       case 'gifts':
         return <GiftsPage />;
-      case 'makeup':
-        return <MakeupPage />;
       case 'charts':
         return <ChartsPage />;
       case 'notes':

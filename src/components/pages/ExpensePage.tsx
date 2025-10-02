@@ -140,7 +140,7 @@ export const ExpensePage = () => {
                 
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Spent: ${budget.spent}</span>
+                    <span className="text-muted-foreground">Spent: ₹{budget.spent}</span>
                     <span className={`font-semibold ${
                       status === 'danger' ? 'text-red-500' : 
                       status === 'warning' ? 'text-amber-500' : 'text-green-500'
@@ -196,7 +196,7 @@ export const ExpensePage = () => {
           
           <div>
             <label className="block text-sm font-sakura font-medium text-foreground mb-2">
-              Amount ($)
+              Amount (₹)
             </label>
             <input
               type="number"
@@ -270,7 +270,7 @@ export const ExpensePage = () => {
                 </div>
                 
                 <div className="text-2xl font-bold text-primary">
-                  -${expense.amount.toFixed(2)}
+                  -₹{expense.amount.toFixed(2)}
                 </div>
               </div>
             </div>

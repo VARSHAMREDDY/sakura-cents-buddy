@@ -4,7 +4,7 @@ export const ChartsPage = () => {
   // Sample data for charts
   const expenseData = [
     { name: 'Food & Drinks', value: 800, color: '#ff6b6b' },
-    { name: 'Beauty & Skincare', value: 600, color: '#ff8cc8' },
+    { name: 'Beauty & Self-care', value: 600, color: '#ff8cc8' },
     { name: 'Clothes', value: 450, color: '#a8e6cf' },
     { name: 'Entertainment', value: 300, color: '#87ceeb' },
     { name: 'Transport', value: 200, color: '#dda0dd' },
@@ -36,7 +36,7 @@ export const ChartsPage = () => {
           <p className="font-cute font-semibold text-foreground">{label}</p>
           {payload.map((entry: any, index: number) => (
             <p key={index} className="font-sakura" style={{ color: entry.color }}>
-              {entry.name}: ${entry.value.toLocaleString()}
+              {entry.name}: ₹{entry.value.toLocaleString()}
             </p>
           ))}
         </div>
@@ -85,7 +85,7 @@ export const ChartsPage = () => {
                     return (
                       <div className="bg-white p-3 rounded-lg shadow-lg border border-primary/20">
                         <p className="font-cute font-semibold text-foreground">{payload[0].name}</p>
-                        <p className="font-sakura text-primary">${payload[0].value?.toLocaleString()}</p>
+                        <p className="font-sakura text-primary">₹{payload[0].value?.toLocaleString()}</p>
                       </div>
                     );
                   }
@@ -183,7 +183,7 @@ export const ChartsPage = () => {
           <div className="text-3xl mb-2">📊</div>
           <h3 className="font-cute font-bold text-lg text-foreground">Top Category</h3>
           <p className="text-2xl font-bold text-primary">Food</p>
-          <p className="text-sm text-muted-foreground font-sakura">$800 this month</p>
+          <p className="text-sm text-muted-foreground font-sakura">₹800 this month</p>
         </div>
         
         <div className="card-sakura text-center">

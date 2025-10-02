@@ -69,7 +69,7 @@ export const Dashboard = () => {
       {/* Welcome Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-cute font-bold text-primary mb-4">
-          Welcome back, Dream Saver! 🌸
+          Welcome back, Sheethu! 🌸
         </h1>
         <p className="text-lg font-sakura text-muted-foreground">
           Let's see how your financial garden is blooming today
@@ -92,7 +92,7 @@ export const Dashboard = () => {
             </div>
           </div>
           <div className="text-3xl font-bold text-primary mb-2">
-            ${animatedValues.income.toLocaleString()}
+            ₹{animatedValues.income.toLocaleString()}
           </div>
           <div className="flex items-center text-sm text-green-600">
             <TrendingUp size={16} className="mr-1" />
@@ -114,7 +114,7 @@ export const Dashboard = () => {
             </div>
           </div>
           <div className="text-3xl font-bold text-primary mb-2">
-            ${animatedValues.expenses.toLocaleString()}
+            ₹{animatedValues.expenses.toLocaleString()}
           </div>
           <div className="flex items-center text-sm text-red-500">
             <TrendingDown size={16} className="mr-1" />
@@ -136,7 +136,7 @@ export const Dashboard = () => {
             </div>
           </div>
           <div className="text-3xl font-bold text-primary mb-2">
-            ${animatedValues.savings.toLocaleString()}
+            ₹{animatedValues.savings.toLocaleString()}
           </div>
           <div className="flex items-center text-sm text-green-600">
             <TrendingUp size={16} className="mr-1" />
@@ -158,7 +158,7 @@ export const Dashboard = () => {
           <div>
             <div className="flex justify-between items-center mb-2">
               <span className="font-sakura text-foreground">Savings Goal</span>
-              <span className="font-bold text-primary">${budgetData.savings} / ${budgetData.budgetGoals}</span>
+              <span className="font-bold text-primary">₹{budgetData.savings} / ₹{budgetData.budgetGoals}</span>
             </div>
             <div className="w-full bg-secondary rounded-full h-3 overflow-hidden">
               <div 
@@ -181,7 +181,7 @@ export const Dashboard = () => {
                category === 'entertainment' ? '🎉' : '📈'}
             </div>
             <h3 className="font-cute font-semibold text-foreground capitalize">{category}</h3>
-            <p className="text-lg font-bold text-primary">${amount}</p>
+            <p className="text-lg font-bold text-primary">₹{amount}</p>
           </div>
         ))}
       </div>
