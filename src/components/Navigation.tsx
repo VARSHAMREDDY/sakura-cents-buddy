@@ -32,7 +32,7 @@ export const Navigation = ({ currentPage, onPageChange }: NavigationProps) => {
 
   return (
     <nav className="fixed left-0 top-0 h-full w-72 p-6 z-50">
-      <div className="card-sakura h-full">
+      <div className="card-sakura h-full flex flex-col">
         <div className="mb-8">
           <h1 className="text-2xl font-cute font-bold text-primary mb-2">
             🌸 Sakura Budget
@@ -42,7 +42,7 @@ export const Navigation = ({ currentPage, onPageChange }: NavigationProps) => {
           </p>
         </div>
         
-        <div className="space-y-2">
+        <div className="space-y-2 flex-1 overflow-y-auto pr-2">
           {menuItems.map((item) => {
             const Icon = item.icon;
             const isActive = currentPage === item.id;
@@ -78,7 +78,7 @@ export const Navigation = ({ currentPage, onPageChange }: NavigationProps) => {
           })}
         </div>
         
-        <div className="mt-8 p-4 rounded-2xl bg-gradient-soft border border-primary/20">
+        <div className="mt-4 p-4 rounded-2xl bg-gradient-soft border border-primary/20">
           <div className="text-xs font-cute text-muted-foreground mb-2">
             💡 Tip of the Day
           </div>

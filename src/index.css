@@ -199,9 +199,6 @@ All colors MUST be HSL for perfect gradients and animations.
   /* Interactive Cat */
   .sakura-cat {
     position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
     width: 80px;
     height: 60px;
     background: var(--gradient-cat);
@@ -213,17 +210,17 @@ All colors MUST be HSL for perfect gradients and animations.
   }
 
   .sakura-cat:hover {
-    transform: translateX(-50%) scale(1.1);
     filter: drop-shadow(var(--glow-soft));
   }
 
   .cat-ears {
     position: absolute;
     top: -8px;
-    width: 12px;
-    height: 15px;
+    width: 14px;
+    height: 18px;
     background: var(--gradient-cat);
     border-radius: 50% 50% 0 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
 
   .cat-ears.left { left: 15px; transform: rotate(-15deg); }
@@ -231,48 +228,73 @@ All colors MUST be HSL for perfect gradients and animations.
 
   .cat-face {
     position: absolute;
-    top: 8px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 4px;
-    height: 4px;
+    width: 5px;
+    height: 5px;
     background: hsl(340 50% 40%);
     border-radius: 50%;
   }
 
   .cat-whiskers {
     position: absolute;
-    top: 12px;
-    width: 2px;
+    top: 14px;
+    width: 15px;
     height: 1px;
     background: hsl(340 30% 50%);
   }
 
-  .cat-whiskers.left1 { left: 10px; transform: rotate(-20deg); }
-  .cat-whiskers.left2 { left: 8px; top: 16px; transform: rotate(-10deg); }
-  .cat-whiskers.right1 { right: 10px; transform: rotate(20deg); }
-  .cat-whiskers.right2 { right: 8px; top: 16px; transform: rotate(10deg); }
+  .cat-whiskers.left1 { left: 5px; transform: rotate(-15deg); }
+  .cat-whiskers.left2 { left: 3px; top: 18px; transform: rotate(-8deg); }
+  .cat-whiskers.right1 { right: 5px; transform: rotate(15deg); }
+  .cat-whiskers.right2 { right: 3px; top: 18px; transform: rotate(8deg); }
 
   .cat-tail {
     position: absolute;
-    bottom: 5px;
-    right: -10px;
-    width: 20px;
-    height: 4px;
+    bottom: 8px;
+    right: -12px;
+    width: 25px;
+    height: 5px;
     background: var(--gradient-cat);
     border-radius: 10px;
     transform-origin: left center;
-    animation: wag 1.5s ease-in-out infinite;
   }
 
   @keyframes float {
-    0%, 100% { transform: translateX(-50%) translateY(0px); }
-    50% { transform: translateX(-50%) translateY(-8px); }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
   }
 
   @keyframes wag {
     0%, 100% { transform: rotate(10deg); }
     50% { transform: rotate(-10deg); }
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted) / 0.3);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 10px;
+    transition: var(--transition-smooth);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--accent)), hsl(var(--primary)));
+  }
+  
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary)) hsl(var(--muted) / 0.3);
   }
 
   /* Button Variants */
