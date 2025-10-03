@@ -60,35 +60,14 @@ export const SakuraTree = () => {
         }}
       />
 
-      {/* Primary branches - spreading naturally */}
+      {/* Primary branches - spreading across the screen */}
+      {/* Left side branches */}
       <div 
         className="absolute left-16 rounded-full origin-left"
         style={{
           bottom: '35vh',
-          width: '25vw',
+          width: '35vw',
           height: '8px',
-          background: 'linear-gradient(to right, #6b5444, #8d7565, transparent)',
-          transform: 'rotate(-25deg)',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
-        }}
-      />
-      <div 
-        className="absolute left-16 rounded-full origin-left"
-        style={{
-          bottom: '30vh',
-          width: '22vw',
-          height: '7px',
-          background: 'linear-gradient(to right, #6b5444, #8d7565, transparent)',
-          transform: 'rotate(-15deg)',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
-        }}
-      />
-      <div 
-        className="absolute left-16 rounded-full origin-left"
-        style={{
-          bottom: '25vh',
-          width: '20vw',
-          height: '6px',
           background: 'linear-gradient(to right, #6b5444, #8d7565, transparent)',
           transform: 'rotate(-20deg)',
           boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
@@ -97,11 +76,57 @@ export const SakuraTree = () => {
       <div 
         className="absolute left-16 rounded-full origin-left"
         style={{
-          bottom: '20vh',
-          width: '18vw',
-          height: '6px',
+          bottom: '30vh',
+          width: '38vw',
+          height: '7px',
           background: 'linear-gradient(to right, #6b5444, #8d7565, transparent)',
           transform: 'rotate(-10deg)',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+        }}
+      />
+      <div 
+        className="absolute left-16 rounded-full origin-left"
+        style={{
+          bottom: '25vh',
+          width: '42vw',
+          height: '7px',
+          background: 'linear-gradient(to right, #6b5444, #8d7565, transparent)',
+          transform: 'rotate(-5deg)',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+        }}
+      />
+      
+      {/* Right side branches */}
+      <div 
+        className="absolute left-16 rounded-full origin-left"
+        style={{
+          bottom: '33vh',
+          width: '45vw',
+          height: '8px',
+          background: 'linear-gradient(to right, #6b5444, #8d7565, transparent)',
+          transform: 'rotate(5deg)',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+        }}
+      />
+      <div 
+        className="absolute left-16 rounded-full origin-left"
+        style={{
+          bottom: '28vh',
+          width: '48vw',
+          height: '7px',
+          background: 'linear-gradient(to right, #6b5444, #8d7565, transparent)',
+          transform: 'rotate(12deg)',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+        }}
+      />
+      <div 
+        className="absolute left-16 rounded-full origin-left"
+        style={{
+          bottom: '23vh',
+          width: '50vw',
+          height: '7px',
+          background: 'linear-gradient(to right, #6b5444, #8d7565, transparent)',
+          transform: 'rotate(8deg)',
           boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
         }}
       />
@@ -111,10 +136,10 @@ export const SakuraTree = () => {
         className="absolute left-20 rounded-full origin-left"
         style={{
           bottom: '32vh',
-          width: '15vw',
+          width: '30vw',
           height: '5px',
           background: 'linear-gradient(to right, #7d6555, #9d8575, transparent)',
-          transform: 'rotate(-30deg)',
+          transform: 'rotate(-25deg)',
           boxShadow: '0 1px 5px rgba(0,0,0,0.15)'
         }}
       />
@@ -122,29 +147,40 @@ export const SakuraTree = () => {
         className="absolute left-20 rounded-full origin-left"
         style={{
           bottom: '27vh',
-          width: '14vw',
+          width: '35vw',
           height: '5px',
           background: 'linear-gradient(to right, #7d6555, #9d8575, transparent)',
-          transform: 'rotate(-18deg)',
+          transform: 'rotate(15deg)',
           boxShadow: '0 1px 5px rgba(0,0,0,0.15)'
         }}
       />
       <div 
         className="absolute left-20 rounded-full origin-left"
         style={{
-          bottom: '22vh',
-          width: '13vw',
+          bottom: '24vh',
+          width: '32vw',
+          height: '5px',
+          background: 'linear-gradient(to right, #7d6555, #9d8575, transparent)',
+          transform: 'rotate(-15deg)',
+          boxShadow: '0 1px 5px rgba(0,0,0,0.15)'
+        }}
+      />
+      <div 
+        className="absolute left-20 rounded-full origin-left"
+        style={{
+          bottom: '21vh',
+          width: '38vw',
           height: '4px',
           background: 'linear-gradient(to right, #7d6555, #9d8575, transparent)',
-          transform: 'rotate(-25deg)',
+          transform: 'rotate(18deg)',
           boxShadow: '0 1px 5px rgba(0,0,0,0.15)'
         }}
       />
 
       {/* Beautiful sakura flower clusters on branches */}
-      {Array.from({ length: 50 }).map((_, i) => {
+      {Array.from({ length: 80 }).map((_, i) => {
         const topPos = 18 + Math.random() * 20;
-        const leftPos = 8 + Math.random() * 28;
+        const leftPos = 8 + Math.random() * 60;
         const size = 10 + Math.random() * 6;
         const delay = Math.random() * 2;
         
