@@ -138,24 +138,50 @@ export const SakuraCat = ({ currentPage = 'dashboard' }: SakuraCatProps) => {
         <div className={`cat-ears right ${earTwitch ? 'animate-pulse' : ''}`} />
         
         {/* Sakura flower crown on head */}
-        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-10 h-10 flex items-center justify-center">
-          <div className="relative">
-            {/* Multiple flower petals in a crown */}
-            {[0, 60, 120, 180, 240, 300].map((angle, idx) => (
-              <div
-                key={angle}
-                className="absolute animate-bloom opacity-90"
-                style={{
-                  animationDelay: `${idx * 0.3}s`,
-                  transform: `rotate(${angle}deg) translateY(-8px)`,
-                }}
-              >
-                <div className="w-4 h-4 bg-gradient-to-br from-[#ffb3d9] to-[#ffc9e3] rounded-full shadow-lg" />
+        <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+          {/* Beautiful sakura flower crown */}
+          {[0, 72, 144, 216, 288].map((angle, idx) => (
+            <div
+              key={angle}
+              className="absolute"
+              style={{
+                transform: `rotate(${angle}deg) translateY(-6px)`,
+              }}
+            >
+              {/* Individual flower */}
+              <div className="relative w-3 h-3">
+                {[0, 72, 144, 216, 288].map((petalAngle) => (
+                  <div
+                    key={petalAngle}
+                    className="absolute"
+                    style={{
+                      width: '5px',
+                      height: '6px',
+                      background: 'linear-gradient(135deg, #ffb3d9 0%, #ffc9e3 50%, #ffe0f0 100%)',
+                      borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+                      top: '50%',
+                      left: '50%',
+                      transform: `rotate(${petalAngle}deg) translateY(-2px)`,
+                      transformOrigin: 'center center',
+                      boxShadow: '0 1px 2px rgba(255,105,180,0.3)',
+                    }}
+                  />
+                ))}
+                {/* Flower center */}
+                <div 
+                  className="absolute top-1/2 left-1/2 rounded-full"
+                  style={{
+                    width: '2px',
+                    height: '2px',
+                    background: '#ff69b4',
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                />
               </div>
-            ))}
-            {/* Center jewel */}
-            <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-gradient-to-br from-[#ff69b4] to-[#ff1493] rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-lg animate-pulse" />
-          </div>
+            </div>
+          ))}
+          {/* Crown center jewel */}
+          <div className="w-2 h-2 bg-gradient-to-br from-[#ff69b4] to-[#ff1493] rounded-full shadow-md animate-pulse" />
         </div>
         
         {/* Floating hearts when loved */}
