@@ -50,89 +50,103 @@ export const SakuraTree = () => {
 
   return (
     <div className="sakura-tree fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* SVG for smooth, natural tree branches */}
-      <svg className="absolute bottom-0 left-0 w-[600px] h-[70vh]" viewBox="0 0 600 800" preserveAspectRatio="xMinYMax meet">
-        <defs>
-          <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#3d2817" />
-            <stop offset="50%" stopColor="#5c4433" />
-            <stop offset="100%" stopColor="#4a3426" />
-          </linearGradient>
-          <linearGradient id="branchGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#5c4433" />
-            <stop offset="100%" stopColor="#7d6555" />
-          </linearGradient>
-          <filter id="treeShadow">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-            <feOffset dx="2" dy="2" result="offsetblur"/>
-            <feComponentTransfer>
-              <feFuncA type="linear" slope="0.3"/>
-            </feComponentTransfer>
-            <feMerge>
-              <feMergeNode/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        
-        {/* Main trunk with natural curve */}
-        <path d="M 120 800 Q 120 700, 125 600 Q 130 500, 135 400 Q 140 300, 145 200" 
-              stroke="url(#trunkGradient)" strokeWidth="45" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        
-        {/* Major branches with natural curves */}
-        <path d="M 145 200 Q 180 180, 220 160 Q 260 140, 310 130" 
-              stroke="url(#branchGradient)" strokeWidth="18" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        <path d="M 143 230 Q 100 210, 60 195 Q 30 185, 10 180" 
-              stroke="url(#branchGradient)" strokeWidth="16" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        <path d="M 147 180 Q 190 150, 240 130 Q 290 110, 350 100" 
-              stroke="url(#branchGradient)" strokeWidth="20" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        <path d="M 142 260 Q 95 245, 50 235 Q 20 230, 0 228" 
-              stroke="url(#branchGradient)" strokeWidth="15" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        <path d="M 148 150 Q 200 120, 260 100 Q 330 80, 400 70" 
-              stroke="url(#branchGradient)" strokeWidth="22" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        
-        {/* Secondary branches */}
-        <path d="M 220 160 Q 240 145, 265 135 Q 290 125, 320 120" 
-              stroke="url(#branchGradient)" strokeWidth="12" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        <path d="M 60 195 Q 40 185, 25 180 Q 15 178, 8 177" 
-              stroke="url(#branchGradient)" strokeWidth="10" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        <path d="M 240 130 Q 270 115, 305 105 Q 340 95, 380 90" 
-              stroke="url(#branchGradient)" strokeWidth="14" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        <path d="M 50 235 Q 30 228, 15 225 Q 8 223, 3 222" 
-              stroke="url(#branchGradient)" strokeWidth="11" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        <path d="M 260 100 Q 300 85, 345 75 Q 390 65, 440 60" 
-              stroke="url(#branchGradient)" strokeWidth="16" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        
-        {/* Tertiary branches for fullness */}
-        <path d="M 265 135 Q 285 125, 310 118" 
-              stroke="url(#branchGradient)" strokeWidth="8" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        <path d="M 305 105 Q 330 95, 360 88" 
-              stroke="url(#branchGradient)" strokeWidth="9" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-        <path d="M 25 180 Q 15 175, 8 172" 
-              stroke="url(#branchGradient)" strokeWidth="7" fill="none" 
-              strokeLinecap="round" filter="url(#treeShadow)"/>
-      </svg>
+      {/* Main trunk - elegant and natural */}
+      <div 
+        className="absolute bottom-0 left-12 w-12 rounded-t-full"
+        style={{
+          height: '40vh',
+          background: 'linear-gradient(to top, #3d2817 0%, #5c4433 50%, #6b5444 100%)',
+          boxShadow: 'inset -3px 0 10px rgba(0,0,0,0.3), 2px 0 15px rgba(0,0,0,0.2)'
+        }}
+      />
 
-      {/* Realistic sakura flowers on branches */}
-      {Array.from({ length: 80 }).map((_, i) => {
-        const topPos = 10 + Math.random() * 25;
-        const leftPos = Math.random() * 50;
-        const animDelay = Math.random() * 3;
-        const size = 8 + Math.random() * 6;
-        const rotation = Math.random() * 360;
+      {/* Primary branches - spreading naturally */}
+      <div 
+        className="absolute left-16 rounded-full origin-left"
+        style={{
+          bottom: '35vh',
+          width: '25vw',
+          height: '8px',
+          background: 'linear-gradient(to right, #6b5444, #8d7565, transparent)',
+          transform: 'rotate(-25deg)',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+        }}
+      />
+      <div 
+        className="absolute left-16 rounded-full origin-left"
+        style={{
+          bottom: '30vh',
+          width: '22vw',
+          height: '7px',
+          background: 'linear-gradient(to right, #6b5444, #8d7565, transparent)',
+          transform: 'rotate(-15deg)',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+        }}
+      />
+      <div 
+        className="absolute left-16 rounded-full origin-left"
+        style={{
+          bottom: '25vh',
+          width: '20vw',
+          height: '6px',
+          background: 'linear-gradient(to right, #6b5444, #8d7565, transparent)',
+          transform: 'rotate(-20deg)',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+        }}
+      />
+      <div 
+        className="absolute left-16 rounded-full origin-left"
+        style={{
+          bottom: '20vh',
+          width: '18vw',
+          height: '6px',
+          background: 'linear-gradient(to right, #6b5444, #8d7565, transparent)',
+          transform: 'rotate(-10deg)',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+        }}
+      />
+
+      {/* Secondary branches for fullness */}
+      <div 
+        className="absolute left-20 rounded-full origin-left"
+        style={{
+          bottom: '32vh',
+          width: '15vw',
+          height: '5px',
+          background: 'linear-gradient(to right, #7d6555, #9d8575, transparent)',
+          transform: 'rotate(-30deg)',
+          boxShadow: '0 1px 5px rgba(0,0,0,0.15)'
+        }}
+      />
+      <div 
+        className="absolute left-20 rounded-full origin-left"
+        style={{
+          bottom: '27vh',
+          width: '14vw',
+          height: '5px',
+          background: 'linear-gradient(to right, #7d6555, #9d8575, transparent)',
+          transform: 'rotate(-18deg)',
+          boxShadow: '0 1px 5px rgba(0,0,0,0.15)'
+        }}
+      />
+      <div 
+        className="absolute left-20 rounded-full origin-left"
+        style={{
+          bottom: '22vh',
+          width: '13vw',
+          height: '4px',
+          background: 'linear-gradient(to right, #7d6555, #9d8575, transparent)',
+          transform: 'rotate(-25deg)',
+          boxShadow: '0 1px 5px rgba(0,0,0,0.15)'
+        }}
+      />
+
+      {/* Beautiful sakura flower clusters on branches */}
+      {Array.from({ length: 50 }).map((_, i) => {
+        const topPos = 18 + Math.random() * 20;
+        const leftPos = 8 + Math.random() * 28;
+        const size = 10 + Math.random() * 6;
+        const delay = Math.random() * 2;
         
         return (
           <div 
@@ -141,38 +155,38 @@ export const SakuraTree = () => {
             style={{ 
               top: `${topPos}vh`, 
               left: `${leftPos}vw`,
-              animationDelay: `${animDelay}s`,
-              transform: `rotate(${rotation}deg)`,
+              animationDelay: `${delay}s`,
             }}
           >
+            {/* 5-petal sakura flower */}
             <div className="relative" style={{ width: `${size}px`, height: `${size}px` }}>
-              {/* 5 petals in sakura formation */}
               {[0, 72, 144, 216, 288].map((angle) => (
                 <div
                   key={angle}
-                  className="absolute rounded-full"
+                  className="absolute"
                   style={{
-                    width: `${size * 0.55}px`,
-                    height: `${size * 0.65}px`,
-                    background: 'linear-gradient(135deg, #ffb3d9 0%, #ffc9e3 50%, #ffe0f0 100%)',
+                    width: `${size * 0.5}px`,
+                    height: `${size * 0.6}px`,
+                    background: 'linear-gradient(to bottom, #ffb3d9 0%, #ffc9e3 50%, #ffe0f0 100%)',
+                    borderRadius: '50% 50% 50% 0%',
                     top: '50%',
                     left: '50%',
-                    transform: `rotate(${angle}deg) translateY(-${size * 0.3}px)`,
-                    transformOrigin: 'center center',
-                    borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+                    transform: `rotate(${angle}deg) translateY(-${size * 0.25}px)`,
+                    transformOrigin: 'center bottom',
                     boxShadow: '0 1px 3px rgba(255,105,180,0.3)',
                   }}
                 />
               ))}
               {/* Flower center */}
               <div 
-                className="absolute top-1/2 left-1/2 rounded-full"
+                className="absolute top-1/2 left-1/2"
                 style={{
-                  width: `${size * 0.25}px`,
-                  height: `${size * 0.25}px`,
-                  background: 'radial-gradient(circle, #ff69b4 0%, #ff1493 100%)',
+                  width: `${size * 0.2}px`,
+                  height: `${size * 0.2}px`,
+                  background: 'radial-gradient(circle, #ffe066 0%, #ffb347 100%)',
+                  borderRadius: '50%',
                   transform: 'translate(-50%, -50%)',
-                  boxShadow: '0 0 2px rgba(255,20,147,0.6)',
+                  boxShadow: '0 0 2px rgba(255,179,0,0.6)',
                 }}
               />
             </div>
@@ -180,50 +194,43 @@ export const SakuraTree = () => {
         );
       })}
 
-      {/* Realistic falling petals with smooth motion */}
+      {/* Gracefully falling sakura petals */}
       {petals.map(petal => (
         <div
           key={petal.id}
           className="absolute"
           style={{
             left: `${petal.x}px`,
-            top: '-30px',
-            animation: `fall ${petal.duration}s ease-in forwards, sway ${petal.duration / 2}s ease-in-out infinite, flutter ${petal.duration / 4}s ease-in-out infinite`,
+            top: '-20px',
+            animation: `fall ${petal.duration}s ease-in forwards, sway ${petal.duration / 2}s ease-in-out infinite, rotate ${petal.duration / 3}s linear infinite`,
             animationDelay: `${petal.delay}s`,
             '--sway-distance': `${petal.sway}px`,
           } as React.CSSProperties}
         >
-          {/* Single realistic sakura petal */}
+          {/* Single sakura petal - teardrop shape */}
           <div 
-            className="relative"
             style={{
               width: `${petal.size}px`,
-              height: `${petal.size * 1.2}px`,
-              background: 'linear-gradient(135deg, #ffb3d9 0%, #ffc9e3 40%, #ffe0f0 100%)',
-              borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+              height: `${petal.size * 1.3}px`,
+              background: 'linear-gradient(to bottom, #ffb3d9 0%, #ffc9e3 50%, #ffe0f0 100%)',
+              borderRadius: '50% 50% 50% 0%',
               transform: `rotate(${petal.rotation}deg)`,
-              boxShadow: '0 2px 6px rgba(255,105,180,0.3), inset 0 1px 2px rgba(255,255,255,0.5)',
-              opacity: 0.95,
+              boxShadow: '0 2px 4px rgba(255,105,180,0.25), inset -1px -1px 2px rgba(255,255,255,0.4)',
+              opacity: 0.9,
             }}
-          >
-            {/* Petal vein */}
-            <div 
-              className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-[#ff69b4]/30 to-transparent"
-              style={{ transform: 'translateX(-50%)' }}
-            />
-          </div>
+          />
         </div>
       ))}
       
       <style>{`
         @keyframes fall {
           0% {
-            transform: translateY(0) rotate(0deg);
+            transform: translateY(0);
             opacity: 1;
           }
           100% {
-            transform: translateY(100vh) rotate(720deg);
-            opacity: 0.7;
+            transform: translateY(110vh);
+            opacity: 0.5;
           }
         }
         
@@ -231,26 +238,17 @@ export const SakuraTree = () => {
           0%, 100% {
             transform: translateX(0);
           }
-          25% {
-            transform: translateX(calc(var(--sway-distance, 30px) * 0.5));
-          }
-          75% {
+          50% {
             transform: translateX(var(--sway-distance, 30px));
           }
         }
         
-        @keyframes flutter {
-          0%, 100% {
-            transform: rotateX(0deg) rotateY(0deg);
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
           }
-          25% {
-            transform: rotateX(15deg) rotateY(15deg);
-          }
-          50% {
-            transform: rotateX(-10deg) rotateY(30deg);
-          }
-          75% {
-            transform: rotateX(20deg) rotateY(-15deg);
+          to {
+            transform: rotate(360deg);
           }
         }
         
@@ -259,8 +257,8 @@ export const SakuraTree = () => {
             transform: scale(0);
             opacity: 0;
           }
-          60% {
-            transform: scale(1.15);
+          50% {
+            transform: scale(1.1);
           }
           100% {
             transform: scale(1);
