@@ -142,26 +142,27 @@ export const SakuraTree = () => {
       {petals.map(petal => (
         <div
           key={petal.id}
-          className="absolute"
+          className="absolute z-10"
           style={{
             left: `${petal.x}px`,
             top: '-20px',
-            animation: `fall ${petal.duration}s ease-in forwards, sway ${petal.duration / 2}s ease-in-out infinite, rotate ${petal.duration / 3}s linear infinite`,
-            animationDelay: `${petal.delay}s`,
-            '--sway-distance': `${petal.sway}px`,
-          } as React.CSSProperties}
+            willChange: 'transform, opacity',
+          }}
         >
           {/* Single sakura petal - teardrop shape */}
           <div 
+            className="animate-fall"
             style={{
               width: `${petal.size}px`,
               height: `${petal.size * 1.3}px`,
               background: 'linear-gradient(to bottom, #ffb3d9 0%, #ffc9e3 50%, #ffe0f0 100%)',
               borderRadius: '50% 50% 50% 0%',
-              transform: `rotate(${petal.rotation}deg)`,
               boxShadow: '0 2px 4px rgba(255,105,180,0.25), inset -1px -1px 2px rgba(255,255,255,0.4)',
               opacity: 0.9,
-            }}
+              animation: `fall ${petal.duration}s linear forwards, sway ${petal.duration / 2}s ease-in-out infinite, rotate ${petal.duration / 3}s linear infinite`,
+              animationDelay: `${petal.delay}s`,
+              '--sway-distance': `${petal.sway}px`,
+            } as React.CSSProperties}
           />
         </div>
       ))}
@@ -169,12 +170,12 @@ export const SakuraTree = () => {
       <style>{`
         @keyframes fall {
           0% {
-            transform: translateY(0);
+            transform: translateY(0) translateX(0);
             opacity: 1;
           }
           100% {
-            transform: translateY(110vh);
-            opacity: 0.5;
+            transform: translateY(calc(100vh + 50px)) translateX(0);
+            opacity: 0.3;
           }
         }
         
