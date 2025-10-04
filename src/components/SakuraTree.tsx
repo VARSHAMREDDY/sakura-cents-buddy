@@ -50,23 +50,45 @@ export const SakuraTree = () => {
 
   return (
     <div className="sakura-tree fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Thick tree trunk/bark */}
+      {/* Tree trunk starting from footer left, growing wider toward header */}
       <div 
-        className="absolute left-1/2 -translate-x-1/2"
+        className="absolute bottom-0 left-0"
         style={{
-          width: '80px',
-          height: '200px',
-          top: '-50px',
-          background: 'linear-gradient(to right, #5a4434, #6b5444, #7d6555, #6b5444, #5a4434)',
-          borderRadius: '0 0 40px 40px',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.3), inset -5px 0 10px rgba(0,0,0,0.2), inset 5px 0 10px rgba(255,255,255,0.1)'
+          width: '0',
+          height: '0',
+          borderLeft: '40px solid transparent',
+          borderRight: '250px solid transparent',
+          borderBottom: '100vh solid #6b5444',
+          opacity: 0.85,
+        }}
+      />
+      <div 
+        className="absolute bottom-0 left-8"
+        style={{
+          width: '0',
+          height: '0',
+          borderLeft: '35px solid transparent',
+          borderRight: '220px solid transparent',
+          borderBottom: '100vh solid #8d7565',
+          opacity: 0.7,
+        }}
+      />
+      
+      {/* Branches spreading across header */}
+      <div 
+        className="absolute top-0 left-0 right-0"
+        style={{
+          height: '120px',
+          background: 'linear-gradient(to right, #6b5444 0%, #8d7565 15%, #6b5444 30%, #8d7565 50%, #6b5444 70%, #8d7565 85%, rgba(107, 84, 68, 0.4) 100%)',
+          clipPath: 'polygon(0 60%, 100% 40%, 100% 100%, 0 100%)',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
         }}
       />
 
-      {/* Beautiful sakura flower clusters on tree */}
-      {Array.from({ length: 150 }).map((_, i) => {
-        const topPos = 5 + Math.random() * 25;
-        const leftPos = 35 + Math.random() * 30;
+      {/* Beautiful sakura flower clusters across header */}
+      {Array.from({ length: 200 }).map((_, i) => {
+        const topPos = Math.random() * 12;
+        const leftPos = Math.random() * 100;
         const size = 10 + Math.random() * 6;
         const delay = Math.random() * 2;
         
