@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'app.lovable.8d1c49b7ce6541ca8e70eee5839f7bb9',
+  appId: 'com.lovable.sakuracentsbuddy',
   appName: 'sakura-cents-buddy',
   webDir: 'dist',
   server: {
